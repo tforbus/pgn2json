@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>pgn2json demo</title>
+    </head>
+
+    <body>
+        <table>
+            <tr>
+                <td valign='top'>
+                    <h3>PGN</h3>
+                    <textarea rows='20' cols='35' id='pgnInput'></textarea><br/>
+                    <button id='parseBtn' onclick='parse()'>Parse</button><br/>
+                </td>
+                <td valign='top'>
+                    <h3>JSON</h3>
+                    <textarea rows='20' cols='35' id='pgnOutput'></textarea>
+                </td>
+            </tr>
+        </table>
+
+        <script src='./pgn2json.js'></script>
+        <script>
+            var textarea = document.getElementById('pgnInput');
+            var outputarea = document.getElementById('pgnOutput');
+            function parse() {
+                var value = textarea.value;
+                var result = pgn2json.parsePgn(value);
+                outputarea.value = JSON.stringify(result);
+            }
+        </script>
+    </body>
+</html>
