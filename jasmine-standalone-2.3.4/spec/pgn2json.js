@@ -156,4 +156,20 @@ describe('#moveStringToArray', function () {
         expect(arr[2]).toBe('Nxe4');
         expect(arr[3]).toBe('R7xe4');
     });
+
+    it('should handle promotions', function () {
+        var string = 'axb1=Q+ Kf2';
+        var arr = pgn2json._private.moveStringToArray(string);
+
+        expect(arr.length).toBe(2);
+        expect(arr[0]).toBe('axb1=Q+');
+        expect(arr[1]).toBe('Kf2');
+    });
+    
+    it('should handle checkmates', function () {
+        var string = 'axb1=Q#';
+        var arr = pgn2json._private.moveStringToArray(string);
+        expect(arr.length).toBe(1);
+        expect(arr[0]).toBe('axb1=Q#');
+    });
 });

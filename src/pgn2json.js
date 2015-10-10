@@ -100,8 +100,7 @@ var pgn2json = (function (undefined) {
      * @return {Array}
      */
     api._private.moveStringToArray = function moveStringToArray(moveString) {
-        // TODO: include promotions
-        var reMove = /[a-hRNBQK][1-8]?[a-h]?x?[a-h]?x?[1-8]/g;
+        var reMove = /[a-hRNBQK][1-8]?[a-h]?x?[a-h]?x?[1-8](=[NBRQ])?(\+|#)?/g;
         var moves = moveString.match(reMove);
 
         return moves;
