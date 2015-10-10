@@ -1,6 +1,15 @@
 # PGN2JSON
 Convert a PGN file into JSON.
 
+## Usage
+```
+<script src='pgn2json.js'></script>
+<!-- Markup -->
+<script>
+    var pgnJson = pgn2json.parsePgn(somePgnString);
+</script>
+```
+
 ## Input
 ```
 [Event "F/S Return Match"]
